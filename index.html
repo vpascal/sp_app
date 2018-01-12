@@ -5,66 +5,88 @@
   <title>Voting App</title>
 
   <!-- Sortable.js -->
-  <!--<<script src="//rubaxa.github.io/Sortable/Sortable.js"></script>-->
+<script src="//rubaxa.github.io/Sortable/Sortable.js"></script>
+<script src="//rubaxa.github.io/Ply/Ply.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="style.css">
 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-  <!--<<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <!--<link rel="stylesheet" href="style.css">-->
-
-<script type="text/javascript">
-
-$(document).ready(function() {
-       
-    $("button[name='addDom']").click(function() {
-        var domElement = $(
-          '<div id="draggable" style="border: solid 1px blue; width: 25%; height: 150px;"></div>');
-        $(this).after(domElement);
-    });
-    
-});
-
-
-    $("#draggable").on.(draggable();
-}
-
-
-
-</script>
 </head>
 
 <body>
-<button name="addDom">Add Container</button>
-<!--
-<div class="w3-row"> 
 
- <div class="3-container w3-quarter">
-  <h2>Categories</h2>
-  <ul class="w3-ul w3-border" id="foo">
-    <li>foo 1</li>
-    <li>foo 2</li>
-    <li>foo 3</li>
+<nav class="w3-sidebar" style="width:300px; margin-left: 15px;">
+<h2>Themes</h2>
+  <ul id="editable" class="w3-ul w3-border">
+    <li> Community Outreach<i class="js-remove">✖</i></li>
+    <li>Instructional Innovation<i class="js-remove">✖</i> </li>
+    <li>Professional Preparation<i class="js-remove">✖</i></li>
+    <li>Living the Value<i class="js-remove">✖</i></li>
+    <li>Research & External Funding<i class="js-remove">✖</i> </li>
+    <li>Accessability<i class="js-remove">✖</i></li>
+    <li>Academic Excellence<i class="js-remove">✖</i></li>
+    <li>Advocacy and Activism<i class="js-remove">✖</i> </li>
+    <li>Innovative Technology<i class="js-remove">✖</i></li>
   </ul>
-  </div>
+  <button id='add' onclick="myFunction()">Add</button>
+</nav>
 
- <div class="3-container w3-quarter">
-  <div id ='header'></div>
-  <ul class="w3-ul w3-border" id="qux">
+<div class="w3-main" style="margin-left:320px;">
+<div class="w3-row-padding">  
+<div class="3-container w3-quarter">
+  <h2>Bucket 1</h2>
+  <ul class="highlight w3-ul w3-border" id="qux">
     <li></li>
   </ul>
-  </div>
+</div>
 
+<div class="3-container w3-quarter">
+  <h2>Bucket 2</h2>
+  <ul class="highlight w3-ul w3-border" id="qux1">
+    <li></li>
+  </ul>
+</div>
+
+<div class="3-container w3-quarter">
+  <h2>Bucket 3</h2>
+  <ul class="highlight w3-ul w3-border" id="qux2">
+    <li></li>
+  </ul>
+</div>
+
+<div class="3-container w3-quarter">
+  <h2>Bucket 4</h2>
+  <ul class="highlight w3-ul w3-border" id="qux3">
+    <li></li>
+  </ul>
+</div>
+
+</div>
 </div>
 
 
 <script type="text/javascript">
 
-  Sortable.create(foo, {
+  var editableList = Sortable.create(editable, {
   group: 'shared',
-  animation: 100
+  animation: 100,
+  filter: '.js-remove',
+  onFilter: function (evt) {
+    var el = editableList.closest(evt.item);
+    el && el.parentNode.removeChild(el);
+  }
 });
+
+function myFunction(){
+
+    Ply.dialog('prompt', {
+      title: 'Add',
+      form: { name: 'Category' }
+    }).done(function (ui) {
+      var el = document.createElement('li');
+      el.innerHTML = ui.data.name + '<i class="js-remove">✖</i>';
+      editableList.el.appendChild(el);
+    });
+  }; 
 
 
 Sortable.create(qux, {
@@ -72,11 +94,23 @@ Sortable.create(qux, {
   animation: 100
 });
 
-Sortable.create(header,{
+Sortable.create(qux1, {
   group: 'shared',
   animation: 100
 });
 
-</script> --> 
+Sortable.create(qux2, {
+  group: 'shared',
+  animation: 100
+});
+
+Sortable.create(qux3, {
+  group: 'shared',
+  animation: 100
+});
+
+
+
+</script> 
 </body>
 </html>
