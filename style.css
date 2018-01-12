@@ -223,7 +223,7 @@
 	to { background-position: 60px; }
 }
 
-#add {
+#add, #bucket {
     color: #fff;
     width: 100%;
     border: none;
