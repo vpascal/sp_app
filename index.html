@@ -33,37 +33,37 @@
 
 <div class="w3-main" style="margin-left:320px;">
 <div class="w3-row-padding">  
-<div class="3-container w3-quarter">
+<div class="w3-container w3-quarter">
   <h2>Bucket 1</h2>
   <ul class="highlight w3-ul w3-border" id="qux">
-    <li></li>
+  <li></li>
   </ul>
 </div>
 
-<div class="3-container w3-quarter">
+<div class="w3-container w3-quarter">
   <h2>Bucket 2</h2>
   <ul class="highlight w3-ul w3-border" id="qux1">
-    <li></li>
+  <li></li>
   </ul>
 </div>
 
-<div class="3-container w3-quarter">
+<div class="w3-container w3-quarter">
   <h2>Bucket 3</h2>
   <ul class="highlight w3-ul w3-border" id="qux2">
     <li></li>
   </ul>
 </div>
 
-<div class="3-container w3-quarter">
+<div class="w3-container w3-quarter">
   <h2>Bucket 4</h2>
   <ul class="highlight w3-ul w3-border" id="qux3">
-    <li></li>
+  <li></li>
   </ul>
 </div>
 
 </div>
 
-<div class="w3-row-padding" id="secondrow">  
+<div class="w3-row-padding" id="secondrow">
 </div> 
 
 </div>
@@ -94,12 +94,24 @@ function myFunction(){
   }; 
 
 
+var counter = 4;
 
 function bucket() {
+    
     var div = document.createElement('div');
-    div.setAttribute('class', "3-container w3-quarter");
-    div.innerHTML="<h2>Extra Bucket</h2><ul class='highlight w3-ul w3-border' id='qux4'><li></li></ul>";
+    div.setAttribute('class', "w3-container w3-quarter");
+    var localcounter = counter+1;
+    div.innerHTML="<h2>Bucket "+localcounter+"</h2><ul class='highlight w3-ul w3-border' id=qux"+counter+"><li></li></ul>";
+    var x = 'qux'+ counter;
+    counter++;
     document.getElementById("secondrow").appendChild(div);
+    console.log(x);
+    Sortable.create(document.getElementById(x),{
+      group:'shared',
+      animation: 100
+    });
+
+     
 };
 
 
@@ -123,7 +135,6 @@ Sortable.create(qux3, {
   group: 'shared',
   animation: 100
 });
-
 
 
 </script> 
