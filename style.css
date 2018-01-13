@@ -242,7 +242,7 @@
 		position: relative;
 	}
 
-	#editable i {
+	#editable i, #qux i, #qux1 i, #qux2 i, #qux3 i, #qux4 i, #qux5 i, #qux6 i, #qux7 i, #qux8 i, #qux9 i, #qux10 i {
 		-webkit-transition: opacity .2s;
 		transition: opacity .2s;
 		opacity: 0;

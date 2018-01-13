@@ -8,6 +8,9 @@
 <script src="//rubaxa.github.io/Sortable/Sortable.js"></script>
 <script src="//rubaxa.github.io/Ply/Ply.min.js"></script>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+
+
 <link rel="stylesheet" href="style.css">
 
 </head>
@@ -15,12 +18,12 @@
 <body>
 
 <nav class="w3-sidebar" style="width:300px; margin-left: 15px;">
-<h2>Themes</h2>
-  <ul id="editable" class="w3-ul w3-border">
-    <li> Community Outreach<i class="js-remove">✖</i></li>
+<h2>Themes <span id='sort' onclick="w3.sortHTML('#editable', 'li')" class='w3-button'>&#8693;</span></h2>
+
+  <ul id="editable" class="w3-ul w3-border w3-hoverable">
+    <li>Community Outreach<i class="js-remove">✖</i></li>
     <li>Instructional Innovation<i class="js-remove">✖</i> </li>
     <li>Professional Preparation<i class="js-remove">✖</i></li>
-    <li>Living the Value<i class="js-remove">✖</i></li>
     <li>Research & External Funding<i class="js-remove">✖</i> </li>
     <li>Accessability<i class="js-remove">✖</i></li>
     <li>Academic Excellence<i class="js-remove">✖</i></li>
@@ -35,30 +38,42 @@
 <div class="w3-row-padding">  
 <div class="w3-container w3-quarter">
   <h2>Bucket 1</h2>
-  <ul class="highlight w3-ul w3-border" id="qux">
-  <li></li>
+  <ul class="highlight w3-ul w3-border w3-hoverable w3-card-2" id="qux">
+  <li>Professional Preparation</li>
+  <li>Teacher Education and Assessment</li>
+  <li>Early Childhood Education and CDC</li>
+  <li>Student Development and Enrollment</li>
   </ul>
+  <span onclick="this.parentElement.style.display='none'" class="w3-button">&times;</span>
+  <span onclick="reset('qux')" class="w3-button">&laquo;</span>
 </div>
 
 <div class="w3-container w3-quarter">
   <h2>Bucket 2</h2>
-  <ul class="highlight w3-ul w3-border" id="qux1">
-  <li></li>
+  <ul class="highlight w3-ul w3-border w3-hoverable w3-card-2" id="qux1">
+    <li>Living the Value<i class="js-remove">✖</i></li>
+    <li>Diversity and Inclusion<i class="js-remove">✖</i></li>
+    <li>Program Development<i class="js-remove">✖</i></li>
+    <li>Internal Climate and Culture<i class="js-remove">✖</i></li>
   </ul>
+      <span onclick="this.parentElement.style.display='none'" class="w3-button">&times;</span>
+      <span onclick="reset('qux1')" class="w3-button">&laquo;</span>
 </div>
 
 <div class="w3-container w3-quarter">
   <h2>Bucket 3</h2>
-  <ul class="highlight w3-ul w3-border" id="qux2">
-    <li></li>
+  <ul class="highlight w3-ul w3-border w3-hoverable w3-card-2" id="qux2">
   </ul>
+  <span onclick="this.parentElement.style.display='none'" class="w3-button">&times;</span>
+  <span onclick="reset('qux2')" class="w3-button">&laquo;</span>
 </div>
 
 <div class="w3-container w3-quarter">
   <h2>Bucket 4</h2>
-  <ul class="highlight w3-ul w3-border" id="qux3">
-  <li></li>
+  <ul class="highlight w3-ul w3-border w3-hoverable w3-card-2" id="qux3">
   </ul>
+  <span onclick="this.parentElement.style.display='none'" class="w3-button">&times;</span>
+  <span onclick="reset('qux3')" class="w3-button">&laquo;</span>
 </div>
 
 </div>
@@ -101,7 +116,7 @@ function bucket() {
     var div = document.createElement('div');
     div.setAttribute('class', "w3-container w3-quarter");
     var localcounter = counter+1;
-    div.innerHTML="<h2>Bucket "+localcounter+"</h2><ul class='highlight w3-ul w3-border' id=qux"+counter+"><li></li></ul>";
+    div.innerHTML="<h2>Bucket "+localcounter+"</h2><ul class='highlight w3-ul w3-border w3-hoverable w3-card-2' id=qux"+counter+"><li></li></ul><span onclick='this.parentElement.style.display=\x22none\x22' class='w3-button'>&times;</span>";
     var x = 'qux'+ counter;
     counter++;
     document.getElementById("secondrow").appendChild(div);
@@ -112,6 +127,15 @@ function bucket() {
     });
 
      
+};
+
+function reset(id) {
+    var node = document.getElementById(id).childNodes;
+    //var node = document.getElementById("qux");
+    var list = document.getElementById("editable");
+    for (var i = 1; i < node.length; i++) {
+    list.insertBefore(node[i], list.childNodes[0]);
+  }
 };
 
 
@@ -135,6 +159,7 @@ Sortable.create(qux3, {
   group: 'shared',
   animation: 100
 });
+
 
 
 </script> 
