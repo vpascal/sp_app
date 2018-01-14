@@ -12,6 +12,7 @@ To do:
 * load themes dynamically e.g. via csv
 	* badges can indicate frequency
 	* modals can have raw comments
-* zoom in/out of bucket
-* sort  entries within each bucket
+* zoom in/out of a bucket
+* sort entries within each bucket
+* implement save feature; look into print css as an alternative
 * other small stuff
