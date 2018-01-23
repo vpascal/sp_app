@@ -71,3 +71,16 @@ Sortable.create(qux3, {
   animation: 100
 });
 
+
+d3.csv("data.csv", function(data) {
+  d3.select('#editable')
+  .selectAll('.vlad')
+  .data(data)
+  .enter()
+  .append("li")
+  .html(function(d,i) { return d.comment + "&nbsp" + "<span class='w3-badge w3-green'>" + d.frequency + "</span>";})
+  .append('i')
+  .attr('class', 'js-remove')
+  .text('✖'); 
+});
+
