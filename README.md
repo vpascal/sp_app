@@ -9,9 +9,9 @@ Features:
 * create new buckets and delete them;
 
 To do:
-* ~~load themes dynamically e.g. via csv ~~ done
-	~~* badges can indicate frequency ~~ done
-	* modals can have raw comments
+* ~~load themes dynamically e.g. via csv~~   - Done
+     * ~~badges can indicate frequency~~ - Done
+	* modals can have raw commentss
 * zoom in/out of a bucket
 * sort entries within each bucket
 * implement save feature; look into print css as an alternative
