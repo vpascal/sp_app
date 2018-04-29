@@ -10,7 +10,11 @@
       <link rel="stylesheet" href="style.css">
       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
    </head>
+  
    <body>
+
+<!-- Navigation panel -->
+
       <nav class="w3-sidebar" style="width:300px; margin-left: 15px;">
          <h2>Themes <span id='sort' onclick="w3.sortHTML('#editable', 'li')" class='w3-button'>&#8693;</span></h2>
          <ul id="editable" class="w3-ul w3-border w3-hoverable">
@@ -24,6 +28,9 @@
          <button id='add' onclick="myFunction()">Add Theme</button>
          <button id='bucket' onclick="bucket()">Add Bucket</button>
       </nav>
+
+<!-- first bucket -->
+
       <div class="w3-main" style="margin-left:320px;">
          <div class="w3-row-padding">
             <div class="w3-container w3-quarter">
@@ -34,9 +41,12 @@
                   <li>Early Childhood Education and CDC</li>
                   <li>Student Development and Enrollment</li>
                </ul>
-               <span onclick="this.parentElement.style.display='none'" class="w3-button">&times;</span>
+               <span onclick="this.parentElement.style.display='none';" class="w3-button">&times;</span>
                <span onclick="reset('qux')" class="w3-button">&laquo;</span>
             </div>
+
+<!--  second bucket -->
+
             <div class="w3-container w3-quarter">
                <h2>Bucket 2</h2>
                <ul class="highlight w3-ul w3-border w3-hoverable w3-card-2" id="qux1">
@@ -45,26 +55,37 @@
                   <li>Program Development<i class="js-remove">✖</i></li>
                   <li>Internal Climate and Culture<i class="js-remove">✖</i></li>
                </ul>
-               <span onclick="this.parentElement.style.display='none'" class="w3-button">&times;</span>
+               <span onclick="this.parentElement.style.display='none';" class="w3-button">&times;</span>
                <span onclick="reset('qux1')" class="w3-button">&laquo;</span>
             </div>
+
+<!-- third bucket -->
+
             <div class="w3-container w3-quarter">
                <h2>Bucket 3</h2>
                <ul class="highlight w3-ul w3-border w3-hoverable w3-card-2" id="qux2">
                </ul>
-               <span onclick="this.parentElement.style.display='none'" class="w3-button">&times;</span>
+               <span onclick="this.parentElement.style.display='none';" class="w3-button">&times;</span>
                <span onclick="reset('qux2')" class="w3-button">&laquo;</span>
             </div>
+
+<!-- fourth bucket -->
+
             <div class="w3-container w3-quarter">
                <h2>Bucket 4</h2>
                <ul class="highlight w3-ul w3-border w3-hoverable w3-card-2" id="qux3">
                </ul>
-               <span onclick="this.parentElement.style.display='none'" class="w3-button">&times;</span>
+               <span onclick="this.parentElement.style.display='none';" class="w3-button">&times;</span>
                <span onclick="reset('qux3')" class="w3-button">&laquo;</span>
             </div>
          </div>
+
+<!-- Second row to append a new element -->   
+
          <div class="w3-row-padding" id="secondrow"></div>
+      
       </div>
+
       <script type="text/javascript" src="app.js"></script>
    </body>
 </html>

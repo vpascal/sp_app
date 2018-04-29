@@ -28,7 +28,10 @@ function bucket() {
     var div = document.createElement('div');
     div.setAttribute('class', "w3-container w3-quarter");
     var localcounter = counter+1;
-    div.innerHTML="<h2>Bucket "+localcounter+"</h2><ul class='highlight w3-ul w3-border w3-hoverable w3-card-2' id=qux"+counter+"><li></li></ul><span onclick='this.parentElement.style.display=\x22none\x22' class='w3-button'>&times;</span>";
+    div.innerHTML="<h2>Bucket "+
+                    localcounter+
+                    "</h2><ul class='highlight w3-ul w3-border w3-hoverable w3-card-2' id=qux"+
+                    counter+"><li></li></ul><span onclick='this.parentElement.style.display=\x22none\x22' class='w3-button'>&times;</span>";
     var x = 'qux'+ counter;
     counter++;
     document.getElementById("secondrow").appendChild(div);
